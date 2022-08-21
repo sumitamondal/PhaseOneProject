@@ -40,7 +40,7 @@ public class Amazon {
 			
 		}
 			
-		String ParentHd = driver.getWindowHandle();
+		String ParentWH = driver.getWindowHandle();
 		String ExpectedValue = ProductList.get(0).getText();
 		
 		ProductList.get(0).click();
@@ -49,13 +49,14 @@ public class Amazon {
 		for(String win : AllWindowsHandler) {
 			System.out.println(win);
 			
-			if(!win.equals(ParentHd)) {
+			if(!win.equals(ParentWH)) {
 				driver.switchTo().window(win);
 			}
 		}
 		
 		WebElement Title = driver.findElement(By.id("productTitle"));
-		String str=Title.getText();
+		
+		String str = Title.getText();
 		
 		if(str.equals(ExpectedValue)) {
 			System.out.println("The Title is matching");
@@ -63,9 +64,8 @@ public class Amazon {
 			System.out.println("The Title is not matching");
 		}
 			
-			driver.quit();
+		driver.quit();
 			
-			
-	}
+	   }
 
-}
+       } 
